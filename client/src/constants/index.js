@@ -1,6 +1,7 @@
 
 export const surpriseMePrompts = [
 	"An armchair in the shape of an avocado",
+	"A beautiful nature photo with a sea and bright colors, 4k, ultra realistic",
 	"A surrealist dream-like oil painting by Salvador Dalí of a cat playing checkers",
 	"Teddy bears shopping for groceries in Japan, ukiyo-e",
 	"An oil painting by Matisse of a humanoid robot playing chess",
