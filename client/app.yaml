@@ -1,4 +1,6 @@
 runtime: nodejs16
+vpc_access_connector:
+  name: projects/mern-ai-image-generator-379801/locations/us-west1/connectors/mongo-db-connector
 handlers:
   # Serve all static files with urls ending with a file extension
   - url: /(.*\..+)$

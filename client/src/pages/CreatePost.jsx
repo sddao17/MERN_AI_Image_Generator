@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-import { preview } from '../assets';
-import { getRandomPrompt } from '../utils';
-import { FormField, Loader } from '../components';
+import { preview } from "../assets";
+import { getRandomPrompt } from "../utils";
+import { FormField, Loader } from "../components";
+import { SERVER_URL}  from "../constants/index.js";
 
 const CreatePost = () => {
 	const navigate = useNavigate();
 
 	const [form, setForm] = useState({
-		name: '',
-		prompt: '',
-		photo: '',
+		name: "",
+		prompt: "",
+		photo: "",
 	});
 
 	const [generatingImg, setGeneratingImg] = useState(false);
@@ -28,10 +29,10 @@ const CreatePost = () => {
 		if (form.prompt) {
 			try {
 				setGeneratingImg(true);
-				const response = await fetch('http://localhost:8080/api/v1/dalle', {
-					method: 'POST',
+				const response = await fetch(SERVER_URL + "/api/v1/dallE", {
+					method: "POST",
 					headers: {
-						'Content-Type': 'application/json',
+						"Content-Type": "application/json",
 					},
 					body: JSON.stringify({
 						prompt: form.prompt,
@@ -46,7 +47,7 @@ const CreatePost = () => {
 				setGeneratingImg(false);
 			}
 		} else {
-			alert('Please provide a proper prompt.');
+			alert("Please provide a proper prompt.");
 		}
 	};
 
@@ -56,23 +57,23 @@ const CreatePost = () => {
 		if (form.prompt && form.photo) {
 			setLoading(true);
 			try {
-				const response = await fetch('http://localhost:8080/api/v1/post', {
-					method: 'POST',
+				const response = await fetch(SERVER_URL + "/api/v1/post", {
+					method: "POST",
 					headers: {
-						'Content-Type': 'application/json',
+						"Content-Type": "application/json",
 					},
 					body: JSON.stringify({ ...form }),
 				});
 
 				await response.json();
-				navigate('/');
+				navigate("/");
 			} catch (err) {
 				alert(err);
 			} finally {
 				setLoading(false);
 			}
 		} else {
-			alert('Please generate an image with proper details');
+			alert("Please provide your name and generate an image.");
 		}
 	};
 
@@ -100,7 +101,7 @@ const CreatePost = () => {
 								labelName="Prompt"
 								type="text"
 								name="prompt"
-								placeholder="An Impressionist oil painting of sunflowers in a purple vase…"
+								placeholder="A starry city landscape photo, 4k, ultra realistic..."
 								value={form.prompt}
 								handleChange={handleChange}
 								isSurpriseMe
@@ -136,7 +137,7 @@ const CreatePost = () => {
 								onClick={generateImage}
 								className=" text-white bg-green-700 font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center"
 						>
-							{generatingImg ? 'Generating...' : 'Generate'}
+							{generatingImg ? "Generating..." : "Generate"}
 						</button>
 					</div>
 
@@ -148,7 +149,7 @@ const CreatePost = () => {
 								type="submit"
 								className="mt-3 text-white bg-[#6469ff] font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center"
 						>
-							{loading ? 'Sharing...' : 'Share with the Community'}
+							{loading ? "Sharing..." : "Share with the Community"}
 						</button>
 					</div>
 				</form>

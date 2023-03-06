@@ -1,7 +1,7 @@
 
 import React from "react";
 import { logo } from "./assets";
-import {BrowserRouter, Link, Route, Routes} from "react-router-dom";
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home.jsx";
 import CreatePost from "./pages/CreatePost.jsx";
 

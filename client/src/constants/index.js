@@ -1,5 +1,5 @@
 
-export const surpriseMePrompts = [
+export const SURPRISE_ME_PROMPTS = [
 	"An armchair in the shape of an avocado",
 	"A beautiful nature photo with a sea and bright colors, 4k, ultra realistic",
 	"A surrealist dream-like oil painting by Salvador Dalí of a cat playing checkers",
@@ -48,3 +48,5 @@ export const surpriseMePrompts = [
 	"A man wanders through the rainy streets of Tokyo, with bright neon signs, 50mm",
 	"A space shuttle flying above Cape Town, digital art",
 ];
+
+export const SERVER_URL = "https://server-dot-mern-ai-image-generator-379801.uw.r.appspot.com";
