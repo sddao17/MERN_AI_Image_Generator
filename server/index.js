@@ -22,7 +22,7 @@ app.get("/", async (request, result) => {
 
 const startServer = async () => {
 	try {
-		connectDB(process.env.MONGODB_URL);
+		connectDB(process.env.MONGO_DB_URI);
 	} catch (error) {
 		console.log(error);
 	}

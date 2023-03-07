@@ -49,4 +49,4 @@ export const SURPRISE_ME_PROMPTS = [
 	"A space shuttle flying above Cape Town, digital art",
 ];
 
-export const SERVER_URL = "https://server-dot-mern-ai-image-generator-379801.uw.r.appspot.com";
+export const SERVER_URL = "https://server-dot-mern-ai-image-generator-379902.uw.r.appspot.com";
